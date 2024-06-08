@@ -1,67 +1,64 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #e0f7fa; /* Azul claro */
-    color: #333; /* Texto color oscuro */
+    background-color: #e0f7fa; 
+    color: #333; /* Texto
   }
   
   .container {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff; /* Fondo color blanco */
+    background-color: #fff; /* Fondo 
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .campo {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
   }
   
   input[type="text"],
   input[type="tel"] {
     width: 100%;
     padding: 8px;
-    margin: 6px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
   }
   
+  .botones {
+    display: flex;
+    justify-content: space-around;
+  }
+  
   button {
-    background-color: #4CAF50; /* Verde */
+    background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
-    margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s;
   }
   
   button:hover {
-    background-color: #45a049; /* Verde oscuro */
+    background-color: #45a049; 
   }
   
   #guardar {
-    background-color: #008CBA; /* Azul */
+    background-color: #008CBA; 
   }
   
   #nuevo {
-    background-color: #f44336; /* Rojo */
+    background-color: #f44336;
   }
   
   #buscarPorRut {
-    background-color: #ff9800; /* Naranja */
-  }
-  
-  #verListaRut {
-    background-color: #555; /* Gris oscuro */
-  }
-  
-  #actualizar {
-    background-color: #008CBA; /* Azul */
-  }
-  
-  #volver {
-    background-color: #757575; /* Gris medio */
-  }
-  
-  #volver:hover {
-    background-color: #616161; /* Gris oscuro */
-  }
+    background-color: #ff9
   

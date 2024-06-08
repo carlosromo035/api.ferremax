@@ -3,34 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro de Clientes Ferremax</title>
+  <title>Registro de Clientes</title>
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
   <div class="container">
-    <h1>Registro de Clientes Ferremax</h1>
-    <form id="customerForm">
-      <label for="id">ID:</label>
-      <input type="text" id="id" required>
-      <label for="razonSocial">Razón Social:</label>
-      <input type="text" id="razonSocial" required>
-      <label for="rut">RUT:</label>
-      <input type="text" id="rut" required>
-      <label for="direccion">Dirección:</label>
-      <input type="text" id="direccion" required>
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" required>
-      <label for="apellido">Apellido:</label>
-      <input type="text" id="apellido" required>
-      <label for="telefono">Teléfono:</label>
-      <input type="tel" id="telefono" required>
-      <button type="submit" id="guardar">Guardar</button>
-      <button type="button" id="nuevo">Nuevo</button>
-      <button type="button" id="buscarPorRut">Buscar por RUT</button>
-      <button type="button" id="verListaRut">Ver Lista de RUT</button>
+    <h1>Registro de Clientes</h1>
+
+    <form id="formularioClientes">
+      <div class="campo">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" required>
+      </div>
+
+      <div class="campo">
+        <label for="razonSocial">Razón Social:</label>
+        <input type="text" id="razonSocial" name="razonSocial" required>
+      </div>
+
+      <div class="campo">
+        <label for="rut">RUT:</label>
+        <input type="text" id="rut" name="rut" required>
+      </div>
+
+      <div class="campo">
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required>
+      </div>
+
+      <div class="campo">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+
+      <div class="campo">
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required>
+      </div>
+
+      <div class="campo">
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+      </div>
+
+      <div class="botones">
+        <button type="button" id="guardar">Guardar</button>
+        <button type="button" id="nuevo">Nuevo</button>
+        <button type="button" id="buscar">Buscar</button>
+        <button type="button" id="verLista">Ver Lista</button>
+      </div>
     </form>
   </div>
-  
-  <script src="/js/script.js"></script>
+
+  <script src="./js/script.js"></script>
 </body>
 </html>
