@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de cliente Ferremax</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
     <div class="Container">
@@ -11,18 +12,25 @@
         <form id="customerform">
             <label for="id">ID:</label>
             <input type="text" id="id" required>
-        <form id="customerform">
-            <label for="id">ID:</label>
-            <input type="text" id="id" required>            
-
-
-
-
-        </form>
-
-
-
+            <label for="razonSocial">Razon social</label>
+            <input type="text" id="razonSocial" required>
+            <label for="rut">Rut</label>
+            <input type="text" id="rut" required>
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" required>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" required>
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" required>
+            <label for="telefono">Telefono</label>
+            <input type="tel" id="telefono" required>
+            <button type=" submit" id="guardar">Guardar</button>
+            <button type="button" id="nuevo">Nuevo</button>
+            <button type="button" id="BuscarPorRut">Buscar</button>
+            <button type="button" id="verListaRut">Lista</button>
+        </form>      
     </div>
     
+    <script src="./js/script.js"></script>
 </body>
 </html>
