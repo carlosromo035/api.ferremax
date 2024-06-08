@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #e8f5e9; /* Verde claro */
+    background-color: #e0f7fa; /* Azul claro */
     color: #333; /* Texto color oscuro */
   }
   
@@ -8,7 +8,7 @@ body {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
-    background-color:darksalmon; /* Gris claro */
+    background-color: #fff; /* Fondo color blanco */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
   }
@@ -53,10 +53,15 @@ body {
     background-color: #555; /* Gris oscuro */
   }
   
-  #borrar {
-    background-color: #f44336; /* Rojo */
-  }
-  
   #actualizar {
     background-color: #008CBA; /* Azul */
   }
+  
+  #volver {
+    background-color: #757575; /* Gris medio */
+  }
+  
+  #volver:hover {
+    background-color: #616161; /* Gris oscuro */
+  }
+  
