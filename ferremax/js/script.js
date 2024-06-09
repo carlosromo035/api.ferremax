@@ -1,98 +1,66 @@
-// Simulación de datos
-let clientes = [
-    {
-      id: '1',
-      razonSocial: 'Ferrer S.A.',
-      rut: '12345678-9',
-      direccion: 'malaga 79',
-      nombre: 'Juan',
-      apellido: 'Pérez',
-      telefono: '960500400'
-    },
-    {
-      id: '2',
-      razonSocial: 'Aceros Chile',
-      rut: '9000200-1',
-      direccion: 'Calle mas afuera',
-      nombre: 'Leonardo',
-      apellido: 'Gomez',
-      telefono: '950400300'
-    }
-  ];
-
-// Función para validar
-function validarRut(rut) {
-    return true; // Reemplazar 
-}
-
-// Función para buscar cliente por RUT
-document.getElementById('buscar').addEventListener('click', function() {
-    const rut = prompt('Ingrese el RUT del cliente:');
-    if (rut !== null) {
-        const cliente = clientes.find(c => c.rut === rut.trim());
-
-        if (cliente) {
-            // Redireccionar a clientes.html con el ID del cliente como parámetro en la URL
-            window.location.href = `/ferremax/clientes/clientes.html?id=${cliente.id}`;
-        } else {
-            alert('Cliente no encontrado');
-        }
-    }
+document.getElementById('nuevo').addEventListener('click', () => {
+  // Limpiar formulario para nuevo cliente
+  document.getElementById('clientForm').reset();
 });
 
-// Función para ver lista de RUTs
-document.getElementById('verLista').addEventListener('click', function() {
-    const listaRuts = clientes.map(c => c.rut).join('\n');
-    alert('Lista de RUTs:\n' + listaRuts);
+document.getElementById('listar').addEventListener('click', async () => {
+  try {
+      const response = await fetch('API_ENDPOINT_FOR_LISTAR');
+      const data = await response.json();
+      alert(data.map(client => client.rut).join('\n'));
+  } catch (error) {
+      alert('Error al listar clientes');
+  }
 });
 
-// Función para guardar cliente
-document.getElementById('guardar').addEventListener('click', function() {
-    const id = document.getElementById('id').value;
-    const razonSocial = document.getElementById('razonSocial').value;
-    const rut = document.getElementById('rut').value.trim();
-    const direccion = document.getElementById('direccion').value;
-    const nombre = document.getElementById('nombre').value;
-    const apellido = document.getElementById('apellido').value;
-    const telefono = document.getElementById('telefono').value;
-  
-    // Validación de datos completos y formato RUT
-    if (!id || !razonSocial || !rut || !direccion || !nombre || !apellido || !telefono || !validarRut(rut)) {
-      alert('Datos incorrectos o RUT inválido');
-      return;
-    }
-  
-    const clienteExistente = clientes.find(c => c.rut === rut);
-    if (clienteExistente && clienteExistente.id !== id) {
-      alert('El cliente con este RUT ya existe');
-      return;
-    }
-  
-    const nuevoCliente = { id, razonSocial, rut, direccion, nombre, apellido, telefono };
-    if (clienteExistente) {
-      // Actualizar cliente existente
-      const index = clientes.findIndex(c => c.id === id);
-      clientes[index] = nuevoCliente;
-    } else {
-      // Agregar nuevo cliente
-      clientes.push(nuevoCliente);
-    }
-  
-    alert('Cliente guardado exitosamente');
-    limpiarFormulario();
+document.getElementById('buscar').addEventListener('click', async () => {
+  const id = document.getElementById('id').value;
+  try {
+      const response = await fetch(`API_ENDPOINT_FOR_BUSCAR/${id}`);
+      const client = await response.json();
+      document.getElementById('razonSocial').value = client.razonSocial;
+      document.getElementById('rut').value = client.rut;
+      document.getElementById('direccion').value = client.direccion;
+      document.getElementById('nombre').value = client.nombre;
+      document.getElementById('apellido').value = client.apellido;
+      document.getElementById('telefono').value = client.telefono;
+  } catch (error) {
+      alert('Error al buscar cliente');
+  }
 });
 
-// Función para limpiar el formulario
-document.getElementById('nuevo').addEventListener('click', function() {
-    limpiarFormulario();
+document.getElementById('borrar').addEventListener('click', async () => {
+  const id = document.getElementById('id').value;
+  try {
+      await fetch(`API_ENDPOINT_FOR_BORRAR/${id}`, { method: 'DELETE' });
+      alert('Cliente borrado exitosamente');
+      document.getElementById('clientForm').reset();
+  } catch (error) {
+      alert('Error al borrar cliente');
+  }
 });
 
-function limpiarFormulario() {
-    document.getElementById('id').value = '';
-    document.getElementById('razonSocial').value = '';
-    document.getElementById('rut').value = '';
-    document.getElementById('direccion').value = '';
-    document.getElementById('nombre').value = '';
-    document.getElementById('apellido').value = '';
-    document.getElementById('telefono').value = '';
-}
+document.getElementById('actualizar').addEventListener('click', async () => {
+  const id = document.getElementById('id').value;
+  const client = {
+      razonSocial: document.getElementById('razonSocial').value,
+      rut: document.getElementById('rut').value,
+      direccion: document.getElementById('direccion').value,
+      nombre: document.getElementById('nombre').value,
+      apellido: document.getElementById('apellido').value,
+      telefono: document.getElementById('telefono').value,
+  };
+
+  try {
+      await fetch(`API_ENDPOINT_FOR_ACTUALIZAR/${id}`, {
+          method: 'PUT',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(client)
+      });
+      alert('Cliente actualizado exitosamente');
+  } catch (error) {
+      alert('Error al actualizar cliente');
+  }
+});

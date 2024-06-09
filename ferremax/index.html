@@ -1,60 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro de Clientes</title>
-  <link rel="stylesheet" href="./css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferremax - Gestión de Clientes</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Registro de Clientes</h1>
-
-    <form id="formularioClientes">
-      <div class="campo">
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id" required>
-      </div>
-
-      <div class="campo">
-        <label for="razonSocial">Razón Social:</label>
-        <input type="text" id="razonSocial" name="razonSocial" required>
-      </div>
-
-      <div class="campo">
-        <label for="rut">RUT:</label>
-        <input type="text" id="rut" name="rut" required>
-      </div>
-
-      <div class="campo">
-        <label for="direccion">Dirección:</label>
-        <input type="text" id="direccion" name="direccion" required>
-      </div>
-
-      <div class="campo">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-      </div>
-
-      <div class="campo">
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" required>
-      </div>
-
-      <div class="campo">
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" required>
-      </div>
-
-      <div class="botones">
-        <button type="button" id="guardar">Guardar</button>
-        <button type="button" id="nuevo">Nuevo</button>
-        <button type="button" id="buscar">Buscar</button>
-        <button type="button" id="verLista">Ver Lista</button>
-      </div>
-    </form>
-  </div>
-
-  <script src="./js/script.js"></script>
+    <div class="container">
+        <h1>Ferremax - Gestión de Clientes</h1>
+        <form id="clientForm">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id">
+            <label for="razonSocial">Razón Social:</label>
+            <input type="text" id="razonSocial" name="razonSocial">
+            <label for="rut">RUT:</label>
+            <input type="text" id="rut" name="rut">
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono">
+            <div class="buttons">
+                <button type="button" id="nuevo">Nuevo</button>
+                <button type="button" id="listar">Listar</button>
+                <button type="button" id="buscar">Buscar</button>
+                <button type="button" id="borrar">Borrar</button>
+                <button type="button" id="actualizar">Actualizar</button>
+            </div>
+        </form>
+        <div id="result" class="hidden"></div>
+    </div>
+    <script src="./js/script.js"></script>
 </body>
 </html>
