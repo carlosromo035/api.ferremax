@@ -5,18 +5,23 @@ document.getElementById('newButton').addEventListener('click', newSearch);
 function searchClient() {
     const id = document.getElementById('searchInput').value;
     if (id) {
-        // Llamar a la API para buscar el cliente por ID
-        fetch(`https:${id}`)
-            .then(response => response.json())
+        // Llamar a la API para buscar cliente por ID
+        fetch(`https://${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('No se encontraron datos para este ID');
+                }
+                return response.json();
+            })
             .then(data => displayClient(data))
-            .catch(error => console.error('Error:', error));
+            .catch(error => displayError(error.message));
     } else {
         alert('Por favor, ingrese un ID de cliente.');
     }
 }
 
 function listClients() {
-    // Redirigir a la página de lista de clientes
+    // Redirije a lista clientes
     window.location.href = 'list.html';
 }
 
@@ -37,4 +42,9 @@ function displayClient(client) {
         <p>Apellido: ${client.apellido}</p>
         <p>Teléfono: ${client.telefono}</p>
     `;
+}
+
+function displayError(message) {
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `<p style="color: red;">${message}</p>`;
 }
